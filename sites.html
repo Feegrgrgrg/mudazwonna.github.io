@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online chat by бабер</title>
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Онлайн-чат</h2>
+        </div>
+
+        <div class="chat-body" id="chat-body">
+            <p>Добро пожаловать в наш чат!</p>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" id="message-input" placeholder="Введите сообщение" />
+            <button onclick="sendMessage()">Отправить</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("message-input").value;
+            if (message.trim() == "") {
+                alert("Введите сообщение!");
+                return;
+            }
+            var messageHtml = "<p><b>Вы:</b> " + message + "</p>";
+            document.getElementById("chat-body").innerHTML += messageHtml;
+            document.getElementById("message-input").value = "";
+        }
+    </script>
+
+    <style>
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chat-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .chat-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .chat-footer input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .chat-footer button {
+            width: 28%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .chat-footer button:hover {
+            background-color: #3e8e41;
+        }
+
+        .chat-body p {
+            margin: 0;
+            padding: 5px 10px;
+        }
+
+        .chat-body p:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</body>
+
+</html>
